@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Hair Restoration - Premium Hair Transplant Clinic</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo i {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whatsapp-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .whatsapp-cta:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-cta i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Video Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .testimonial-info {
+            padding: 25px;
+        }
+
+        .patient-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .patient-details {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-preview {
+            font-style: italic;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Before & After Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 3rem;
+        }
+
+        .before-after-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .before-after-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.15);
+        }
+
+        .before-after-card:nth-child(odd) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .before-after-card:nth-child(even) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .before-after-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .before-after-card:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .before-after-card:nth-child(5) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .image-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .before-after-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .before-image, .after-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .before-image {
+            background: linear-gradient(45deg, #ccc, #999);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .after-image {
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+            transition: clip-path 0.3s ease;
+        }
+
+        .before-after-card:hover .after-image {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .case-info {
+            padding: 25px;
+        }
+
+        .case-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .case-details {
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .case-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .whatsapp-cta {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .testimonials-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <i class="fas fa-seedling"></i>
+                    Elite Hair Restoration
+                </div>
+                <h1>Transform Your Life with Premium Hair Transplant</h1>
+                <p class="hero-subtitle">
+                    Regain your confidence with our advanced FUE & DHI techniques. 
+                    Over 5,000 successful procedures with natural-looking results guaranteed.
+                </p>
+                <a href="https://wa.me/1234567890?text=Hi! I'm interested in a hair transplant consultation. Please provide more details." class="whatsapp-cta">
+                    <i class="fab fa-whatsapp"></i>
+                    Book Free Consultation on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Real Patient Success Stories</h2>
+            <p class="section-subtitle">
+                Hear directly from our satisfied patients about their life-changing hair transplant experience
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-info">
+                        <div class="patient-name">Michael Rodriguez</div>
+                        <div class="patient-details">Age 34 • 3,200 Grafts • FUE Method</div>
+                        <p class="testimonial-preview">
+                            "I can't believe the transformation! My confidence is back and I look 10 years younger..."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-info">
+                        <div class="patient-name">David Thompson</div>
+                        <div class="patient-details">Age 28 • 2,800 Grafts • DHI Method</div>
+                        <p class="testimonial-preview">
+                            "The procedure was painless and the results exceeded my expectations. Best decision ever..."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-info">
+                        <div class="patient-name">James Wilson</div>
+                        <div class="patient-details">Age 41 • 4,000 Grafts • FUE Method</div>
+                        <p class="testimonial-preview">
+                            "After 12 months, my hair looks completely natural. Even my barber was amazed..."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-info">
+                        <div class="patient-name">Robert Chen</div>
+                        <div class="patient-details">Age 36 • 3,500 Grafts • DHI Method</div>
+                        <p class="testimonial-preview">
+                            "Professional team, comfortable experience, and incredible results. Highly recommended..."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-info">
+                        <div class="patient-name">Mark Anderson</div>
+                        <div class="patient-details">Age 29 • 2,500 Grafts • FUE Method</div>
+                        <p class="testimonial-preview">
+                            "From consultation to recovery, everything was perfect. My hairline looks amazing..."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Stunning Before & After Results</h2>
+            <p class="section-subtitle">
+                Witness the incredible transformations of our patients with our advanced hair transplant techniques
+            </p>
+            
+            <div class="gallery-grid">
+                <div class="before-after-card">
+                    <div class="image-container">
+                        <div class="before-after-slider">
+                            <div class="before-image">BEFORE</div>
+                            <div class="after-image">AFTER</div>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <div class="case-title">Complete Hairline Restoration</div>
+                        <p class="case-details">
+                            Severe male pattern baldness completely transformed with FUE technique
+                        </p>
+                        <div class="case-stats">
+                            <span>3,800 Grafts</span>
+                            <span>12 Months Result</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="before-after-card">
+                    <div class="image-container">
+                        <div class="before-after-slider">
+                            <div class="before-image">BEFORE</div>
+                            <div class="after-image">AFTER</div>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <div class="case-title">Crown Area Reconstruction</div>
+                        <p class="case-details">
+                            Dense crown coverage achieved with precision DHI implantation
+                        </p>
+                        <div class="case-stats">
+                            <span>2,200 Grafts</span>
+                            <span>10 Months Result</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="before-after-card">
+                    <div class="image-container">
+                        <div class="before-after-slider">
+                            <div class="before-image">BEFORE</div>
+                            <div class="after-image">AFTER</div>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <div class="case-title">Temple Reconstruction</div>
+                        <p class="case-details">
+                            Receding temples restored to natural youthful appearance
+                        </p>
+                        <div class="case-stats">
+                            <span>1,800 Grafts</span>
+                            <span>8 Months Result</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="before-after-card">
+                    <div class="image-container">
+                        <div class="before-after-slider">
+                            <div class="before-image">BEFORE</div>
+                            <div class="after-image">AFTER</div>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <div class="case-title">Full Scalp Coverage</div>
+                        <p class="case-details">
+                            Extensive baldness treated with mega session transplant
+                        </p>
+                        <div class="case-stats">
+                            <span>5,200 Grafts</span>
+                            <span>14 Months Result</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="before-after-card">
+                    <div class="image-container">
+                        <div class="before-after-slider">
+                            <div class="before-image">BEFORE</div>
+                            <div class="after-image">AFTER</div>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <div class="case-title">Density Enhancement</div>
+                        <p class="case-details">
+                            Thinning hair transformed to full, thick natural coverage
+                        </p>
+                        <div class="case-stats">
+                            <span>2,800 Grafts</span>
+                            <span>9 Months Result</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
